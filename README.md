@@ -35,7 +35,31 @@
 
 #### 使用 Docker 部署
 
+1. 启动 MySQL 容器
+
+2. 启动Redis容器
+
+3. 在命令行中进入项目根目录，确保 Dockerfile 和 JAR 文件在同一目录下。
+
+   使用以下命令构建 Docker 镜像，命名为 `wangjun-blog`（可以根据需要修改名称）：
+
+   ```bash
+   docker build -t wangjun-blog 
+   ```
+
+4. 使用以下命令启动 Docker 容器：
+
+   ```bash
+   docker run -d -p 8080:8080 --name wangjun-blog wangjun-blog
+   ```
+
+   
+
+   
+
 ```dockerfile
+
+
 #Dockerfile文件
 
 FROM openjdk:17-jdk-slim
@@ -55,7 +79,6 @@ ENV SPRING_REDIS_HOST redis
 ENV SPRING_REDIS_PORT 6379
 
 ENTRYPOINT ["java", "-jar", "/app.jar"]
-
 ```
 
 
